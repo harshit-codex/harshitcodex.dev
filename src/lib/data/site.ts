@@ -9,7 +9,7 @@ export const siteConfig = {
   email: "harshitcodex@gmail.com",
   phone: "+91 9068124480",
   phoneHref: "+919068124480",
-  linkedin: "https://linkedin.com/in/harshit-yadaav",
+  linkedin: "https://www.linkedin.com/in/harshitcodex",
   github: "https://github.com/harshit-codex",
   resumeUrl: "/resume.pdf",
   siteUrl: "https://harshitcodex.dev",

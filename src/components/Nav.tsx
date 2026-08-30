@@ -11,7 +11,7 @@ const homeLinks = [
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border/80 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
+    <header className="sticky top-0 z-40 border-b border-border/80 bg-background/85 backdrop-blur supports-backdrop-filter:bg-background/70">
       <nav
         aria-label="Primary"
         className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6"
