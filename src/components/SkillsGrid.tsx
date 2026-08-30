@@ -6,16 +6,14 @@ export function SkillsGrid() {
       {skills.map((group) => (
         <div key={group.category} className="rounded-lg border border-border bg-surface p-5">
           <h3 className="mb-3 font-mono text-sm font-medium text-accent">{group.category}</h3>
-          <div className="flex flex-wrap gap-2">
+          <ul className="space-y-2">
             {group.items.map((item) => (
-              <span
-                key={item}
-                className="rounded border border-border px-2 py-1 font-mono text-xs text-foreground/85"
-              >
-                {item}
-              </span>
+              <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
+                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span className="font-mono text-xs sm:text-sm">{item}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       ))}
     </div>

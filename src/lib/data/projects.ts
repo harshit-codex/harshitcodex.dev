@@ -3,6 +3,11 @@ export interface ProjectDecision {
   detail: string;
 }
 
+export interface ProjectLink {
+  label: string;
+  href: string;
+}
+
 export interface Project {
   slug: string;
   name: string;
@@ -16,9 +21,66 @@ export interface Project {
   architecture: string[];
   decisions: ProjectDecision[];
   outcome: string[];
+  externalLink?: ProjectLink;
 }
 
 export const projects: Project[] = [
+  {
+    slug: "myayur",
+    name: "MyAyur",
+    tagline: "Health & Wellness Mobile App",
+    role: "Backend Engineer",
+    period: "2025 to 2026",
+    stack: [
+      "Node.js",
+      "Express.js",
+      "AWS (ECS Fargate, SNS, SQS, EventBridge, Lambda, ElastiCache)",
+      "MongoDB Atlas",
+      "Firebase Auth",
+      "Twilio",
+      "WhatsApp Business API",
+    ],
+    cardHighlights: [
+      "Event-driven microservices on AWS ECS Fargate",
+      "Smart notification batching and rate-limiting",
+      "TDEE-based meal-planning engine",
+    ],
+    externalLink: {
+      label: "View on Google Play",
+      href: "https://play.google.com/store/apps/details?id=com.sreshtayurveda.myayur",
+    },
+    overview:
+      "MyAyur is a health and wellness mobile app published on Google Play. As part of a 3-engineer team, I contributed to the overall microservices architecture and owned two services end to end: Notifications and Background Tasks.",
+    problem:
+      "A wellness app that pushes daily recommendations has to avoid becoming noise: notifications need to reach users without spamming them or getting throttled by third-party providers, and personalized content like meal plans has to be generated on a schedule, per region, without repeating the same recommendation twice. Solving this with direct service-to-service calls would tightly couple notification delivery, scheduling, and recommendation logic in ways that don't scale independently.",
+    architecture: [
+      "The backend is an event-driven system running on AWS ECS Fargate across multiple availability zones, with services communicating through an SNS to SQS fan-out layer instead of direct service-to-service calls, so each consumer can scale and fail independently of the others.",
+      "The Notification microservice is a consumer-based system that batches related notifications intelligently, checks whether a user is already active in the app before sending, and rate-limits calls to third-party providers (WhatsApp, email, push) before dispatch.",
+      "The Background Tasks microservice runs EventBridge-scheduled, region-aware jobs that generate personalized recommendations, including a calorie-budget meal-planning algorithm.",
+    ],
+    decisions: [
+      {
+        title: "SNS to SQS fan-out over direct calls",
+        detail:
+          "Services publish events to SNS topics that fan out to per-consumer SQS queues rather than calling each other directly. This decouples producers from consumers, lets each microservice scale and retry independently, and keeps a slow or failing consumer from cascading back into the rest of the system.",
+      },
+      {
+        title: "Presence-aware, rate-limited notifications",
+        detail:
+          "The Notification service batches related notifications instead of firing one per event, and checks whether a user is already active in-app before sending a push, so active users aren't interrupted with alerts about things they're already looking at. Calls to WhatsApp, email, and push providers are rate-limited on the way out to stay within third-party API limits and avoid provider throttling or bans.",
+      },
+      {
+        title: "TDEE-based meal planning with exclusion logic",
+        detail:
+          "The meal-planning algorithm computes a calorie budget from TDEE (Total Daily Energy Expenditure), splits macros across breakfast, lunch, and dinner slots, and assigns recipes per slot with exclusion logic that tracks recent recommendations so the same meal doesn't repeat too soon.",
+      },
+    ],
+    outcome: [
+      "Shipped and published on Google Play, running in production as a consumer-facing health and wellness app.",
+      "The SNS-to-SQS event-driven architecture let the Notification and Background Tasks services scale and deploy independently of the rest of the platform.",
+      "Notification batching and presence checks cut redundant alerts, and third-party rate-limiting kept the app within WhatsApp, email, and push provider limits.",
+    ],
+  },
   {
     slug: "gigrocket",
     name: "GigRocket",
@@ -31,6 +93,10 @@ export const projects: Project[] = [
       "Stripe Connect marketplace payments",
       "Fraud-anomaly detection + guest checkout",
     ],
+    externalLink: {
+      label: "View live site",
+      href: "https://new.gigrocket.com/",
+    },
     overview:
       "GigRocket is a course marketplace and LMS: instructors publish and sell courses, learners buy and consume them, and money moves between both sides through a marketplace payment layer. As the sole backend engineer, I owned everything server-side (schema, APIs, payments, deployments) for the entire lifetime of the product.",
     problem:
@@ -80,6 +146,10 @@ export const projects: Project[] = [
       "Dual payment processors",
       "Claude-powered claim classification",
     ],
+    externalLink: {
+      label: "View live site",
+      href: "https://www.casedashboard.com/",
+    },
     overview:
       "Case Dashboard is a legal-tech SaaS platform covering the full lifecycle of a small-claims case: intake, case management, e-signature, and mailing, serving two client-facing products (Small Claims Hero and Activation Hero) from one shared backend. Built with one other engineer, splitting backend architecture and frontend delivery.",
     problem:

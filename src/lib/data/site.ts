@@ -7,6 +7,8 @@ export const siteConfig = {
     "I design and ship backend systems (APIs, payments, and multi-tenant infrastructure) that hold up in production.",
   location: "Bareilly, India (Remote, US-based teams)",
   email: "harshit2622002@gmail.com",
+  phone: "+91 9068124480",
+  phoneHref: "+919068124480",
   linkedin: "https://linkedin.com/in/harshit-yadaav",
   github: "https://github.com/harshit-codex",
   resumeUrl: "/resume.pdf",

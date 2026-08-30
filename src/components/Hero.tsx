@@ -1,5 +1,12 @@
 import { siteConfig } from "@/lib/data/site";
-import { FileTextIcon, GitHubIcon, LinkedInIcon, MailIcon, MapPinIcon } from "@/components/Icons";
+import {
+  FileTextIcon,
+  GitHubIcon,
+  LinkedInIcon,
+  MailIcon,
+  MapPinIcon,
+  PhoneIcon,
+} from "@/components/Icons";
 
 export function Hero() {
   return (
@@ -13,9 +20,18 @@ export function Hero() {
       </p>
       <p className="mt-6 max-w-2xl text-lg text-foreground/90">{siteConfig.tagline}</p>
 
-      <div className="mt-3 flex items-center gap-2 text-sm text-muted">
-        <MapPinIcon className="h-4 w-4" />
-        <span>{siteConfig.location}</span>
+      <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted">
+        <span className="flex items-center gap-2">
+          <MapPinIcon className="h-4 w-4" />
+          {siteConfig.location}
+        </span>
+        <a
+          href={`tel:${siteConfig.phoneHref}`}
+          className="flex items-center gap-2 transition-colors hover:text-foreground"
+        >
+          <PhoneIcon className="h-4 w-4" />
+          {siteConfig.phone}
+        </a>
       </div>
 
       <div className="mt-8 flex flex-wrap items-center gap-3">

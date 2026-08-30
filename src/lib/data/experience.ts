@@ -29,8 +29,9 @@ export const experience: ExperienceEntry[] = [
     end: "February 2026",
     highlights: [
       "Developed an AI-powered risk analysis feature for a healthcare documentation platform, flagging risk factors from patient data using Node.js, NestJS, and PostgreSQL",
-      "Engineered REST APIs and microservices with secure authentication, role-based access control, and Redis caching",
-      "Set up event-driven microservice communication using AWS SNS/SQS (20,000+ notifications per day) and migrated large-scale React Native apps to modern Expo architecture",
+      "Owned the notification and background job systems within a team-designed, event-driven microservices architecture for a mobile health-tech platform",
+      "Designed the event-driven communication layer using AWS SNS/SQS, processing 20,000+ notifications per day",
+      "Migrated large-scale React Native apps to modern Expo architecture",
     ],
   },
   {

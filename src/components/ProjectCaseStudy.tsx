@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Project } from "@/lib/data/projects";
-import { ArrowLeftIcon } from "@/components/Icons";
+import { ArrowLeftIcon, ArrowUpRightIcon } from "@/components/Icons";
 
 export function ProjectCaseStudy({ project }: { project: Project }) {
   return (
@@ -33,6 +33,17 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
             </span>
           ))}
         </div>
+        {project.externalLink ? (
+          <a
+            href={project.externalLink.href}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-accent/80"
+          >
+            {project.externalLink.label}
+            <ArrowUpRightIcon className="h-4 w-4" />
+          </a>
+        ) : null}
       </header>
 
       <section className="mt-10">

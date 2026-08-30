@@ -24,6 +24,7 @@ export default function Home() {
     jobTitle: siteConfig.role,
     url: siteConfig.siteUrl,
     email: `mailto:${siteConfig.email}`,
+    telephone: siteConfig.phoneHref,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Bareilly",

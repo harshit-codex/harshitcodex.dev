@@ -1,5 +1,5 @@
 import { siteConfig } from "@/lib/data/site";
-import { FileTextIcon, GitHubIcon, LinkedInIcon, MailIcon } from "@/components/Icons";
+import { FileTextIcon, GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon } from "@/components/Icons";
 
 export function Footer() {
   return (
@@ -19,6 +19,13 @@ export function Footer() {
             >
               <MailIcon className="h-4 w-4" />
               {siteConfig.email}
+            </a>
+            <a
+              href={`tel:${siteConfig.phoneHref}`}
+              className="flex items-center gap-2 text-foreground/85 transition-colors hover:text-accent"
+            >
+              <PhoneIcon className="h-4 w-4" />
+              {siteConfig.phone}
             </a>
             <a
               href={siteConfig.linkedin}

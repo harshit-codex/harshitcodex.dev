@@ -19,6 +19,7 @@ export const skills: SkillCategory[] = [
       "Microservices",
       "Event-Driven Architecture",
       "WebSockets",
+      "Agile/Scrum",
     ],
   },
   {
@@ -26,26 +27,24 @@ export const skills: SkillCategory[] = [
     items: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Supabase", "Drizzle ORM", "Prisma"],
   },
   {
-    category: "AI & Payments",
+    category: "AI & Payment APIs",
     items: [
       "Claude API",
       "OpenAI API",
       "LLM Integration",
       "Prompt Engineering",
       "Stripe (Connect, Checkout, Billing, Webhooks)",
-      "Authorize.net",
     ],
   },
   {
     category: "Cloud & DevOps",
     items: [
-      "AWS (EC2, ECS, S3, CloudFront, SNS/SQS)",
+      "AWS (EC2, ECS, S3, CloudFront, SNS/SQS, EventBridge)",
       "Docker",
       "GitHub Actions",
       "CI/CD",
       "Linux",
       "Nginx",
-      "Cloudflare",
     ],
   },
   {
