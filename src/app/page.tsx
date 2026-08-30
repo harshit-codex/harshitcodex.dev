@@ -4,6 +4,7 @@ import { Section } from "@/components/Section";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SkillsGrid } from "@/components/SkillsGrid";
+import { ContactForm } from "@/components/ContactForm";
 import { siteConfig } from "@/lib/data/site";
 import { projects } from "@/lib/data/projects";
 import { skills } from "@/lib/data/skills";
@@ -61,6 +62,13 @@ export default function Home() {
 
       <Section eyebrow="Toolbox" title="Skills" id="skills">
         <SkillsGrid />
+      </Section>
+
+      <Section eyebrow="Get in touch" title="Contact" id="contact">
+        <p className="mb-6 max-w-xl text-foreground/85">
+          Have a role or project in mind? Send a message and I&apos;ll reply by email.
+        </p>
+        <ContactForm />
       </Section>
     </>
   );
