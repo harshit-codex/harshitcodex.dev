@@ -36,6 +36,7 @@ export const projects: Project[] = [
       "Express.js",
       "AWS (ECS Fargate, SNS, SQS, EventBridge, Lambda, ElastiCache)",
       "MongoDB Atlas",
+      "Redis/Valkey",
       "Firebase Auth",
       "Twilio",
       "WhatsApp Business API",
@@ -43,7 +44,7 @@ export const projects: Project[] = [
     cardHighlights: [
       "Event-driven microservices on AWS ECS Fargate",
       "Smart notification batching and rate-limiting",
-      "TDEE-based meal-planning engine",
+      "Redis/Valkey caching + TDEE-based meal planning",
     ],
     externalLink: {
       label: "View on Google Play",
@@ -56,7 +57,8 @@ export const projects: Project[] = [
     architecture: [
       "The backend is an event-driven system running on AWS ECS Fargate across multiple availability zones, with services communicating through an SNS to SQS fan-out layer instead of direct service-to-service calls, so each consumer can scale and fail independently of the others.",
       "The Notification microservice is a consumer-based system that batches related notifications intelligently, checks whether a user is already active in the app before sending, and rate-limits calls to third-party providers (WhatsApp, email, push) before dispatch.",
-      "The Background Tasks microservice runs EventBridge-scheduled, region-aware jobs that generate personalized recommendations, including a calorie-budget meal-planning algorithm.",
+      "The Background Tasks microservice runs EventBridge-scheduled, region-aware jobs that generate 2 types of personalized recommendations, including a calorie-budget meal-planning algorithm.",
+      "A Redis/Valkey caching layer sits in front of frequently-called endpoints (diet plan, profile, and others) to cut down redundant database calls.",
     ],
     decisions: [
       {
@@ -74,11 +76,17 @@ export const projects: Project[] = [
         detail:
           "The meal-planning algorithm computes a calorie budget from TDEE (Total Daily Energy Expenditure), splits macros across breakfast, lunch, and dinner slots, and assigns recipes per slot with exclusion logic that tracks recent recommendations so the same meal doesn't repeat too soon.",
       },
+      {
+        title: "Redis/Valkey caching for hot endpoints",
+        detail:
+          "Endpoints that get called on nearly every app open, like diet plan and profile, are cached in Redis/Valkey instead of hitting MongoDB on every request. This cut redundant database calls on the app's hottest paths without adding staleness the user would notice.",
+      },
     ],
     outcome: [
       "Shipped and published on Google Play, running in production as a consumer-facing health and wellness app.",
       "The SNS-to-SQS event-driven architecture let the Notification and Background Tasks services scale and deploy independently of the rest of the platform.",
       "Notification batching and presence checks cut redundant alerts, and third-party rate-limiting kept the app within WhatsApp, email, and push provider limits.",
+      "The Redis/Valkey caching layer reduced redundant database calls on the app's most frequently hit endpoints.",
     ],
   },
   {

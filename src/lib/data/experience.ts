@@ -15,10 +15,10 @@ export const experience: ExperienceEntry[] = [
     start: "March 2026",
     end: "Present",
     highlights: [
-      "Architected backend services using Node.js, NestJS, and PostgreSQL for two production SaaS platforms: an LMS marketplace and a legal-tech case management system",
+      "Architected backend services using Node.js, NestJS, and PostgreSQL for 2 production SaaS platforms: an LMS marketplace and a legal-tech case management system",
       "Built payment and payout infrastructure across 2 payment processors (Stripe Connect and Authorize.net), including webhook-driven order processing, payouts, and affiliate commission tracking",
       "Established multi-tenant security using Supabase JWT and PostgreSQL Row-Level Security, integrating 3 external services (Claude, Firma.dev for e-signature, and document delivery) to automate workflows",
-      "Provided ongoing production support across both platforms, resolving deployment and infrastructure issues within a remote, US-based team",
+      "Provided ongoing production support across 2 platforms, resolving deployment and infrastructure issues within a remote, US-based team",
     ],
   },
   {
@@ -28,10 +28,9 @@ export const experience: ExperienceEntry[] = [
     start: "February 2025",
     end: "February 2026",
     highlights: [
-      "Developed an AI-powered risk analysis feature for a healthcare documentation platform, flagging risk factors from patient data using Node.js, NestJS, and PostgreSQL",
-      "Owned the notification and background job systems within a team-designed, event-driven microservices architecture for a mobile health-tech platform",
-      "Designed the event-driven communication layer using AWS SNS/SQS, processing 20,000+ notifications per day",
-      "Migrated large-scale React Native apps to modern Expo architecture",
+      "Took full ownership of the notification and background job microservices within a team-architected, event-driven system, processing 20,000+ notifications per day for a mobile health-tech platform",
+      "Developed an AI-powered risk analysis feature for a healthcare documentation platform, flagging risk factors from patient data using Node.js, NestJS, PostgreSQL, and Redis caching",
+      "Migrated a decade-old React Native app, most of it built on deprecated dependencies, to modern Expo architecture",
     ],
   },
   {
@@ -41,9 +40,9 @@ export const experience: ExperienceEntry[] = [
     start: "July 2023",
     end: "February 2025",
     highlights: [
-      "Created real-time messaging systems using Node.js, MongoDB, Twilio, and WebSockets",
+      "Created a real-time messaging system for desk support across 200+ franchise locations, using Node.js, MongoDB, Twilio, and WebSockets",
       "Delivered integrations with 2 e-commerce platforms (Shopify GraphQL API and eBay), with automated product synchronization",
-      "Optimized backend APIs and reporting dashboards, improving database performance for enterprise clients",
+      "Fixed an N+1 query problem and added targeted database indexes across backend APIs and reporting dashboards, cutting query load for enterprise clients",
     ],
   },
 ];
