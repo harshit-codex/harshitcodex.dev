@@ -14,7 +14,7 @@ export const siteConfig = {
   resumeUrl: "/resume.pdf",
   siteUrl: "https://harshitcodex.dev",
   summary:
-    "Backend Engineer with 3+ years shipping production SaaS platforms across LegalTech, EdTech, and Healthcare, including REST APIs, microservices, payment systems, and AI-integrated features. Strong in system design, database architecture, and cloud deployment, with a track record collaborating with US-based remote teams from architecture through production support.",
+    "Backend Engineer with 3+ years shipping production SaaS platforms across LegalTech, EdTech, and Healthcare, including REST APIs, microservices, payment systems, and AI-integrated features. Proven ability to own systems end to end, drive architecture decisions adopted by cross-functional teams, and mentor teammates through code review, collaborating with US-based remote teams from architecture through production support.",
 } as const;
 
 export const education = {
