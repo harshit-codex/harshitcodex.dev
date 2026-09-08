@@ -103,7 +103,7 @@ export const projects: Project[] = [
     ],
     externalLink: {
       label: "View live site",
-      href: "https://new.gigrocket.com/",
+      href: "https://gigrocket.com/",
     },
     overview:
       "GigRocket is a course marketplace and LMS: instructors publish and sell courses, learners buy and consume them, and money moves between both sides through a marketplace payment layer. As the sole backend engineer, I owned everything server-side (schema, APIs, payments, deployments) for the entire lifetime of the product.",
